@@ -29,7 +29,9 @@ for filename in filenames: # for loop searches for key file extensions and renam
         dst = name + '.avi'
         os.rename(filename, dst)
 
-print("The following files have been renamed:\n\n")
-os.listdir()
+    elif filename.endswith('.mkv'):
+        dst = name + '.mkv'
+        os.rename(filename, dst)
 
-return 0;
+print("The following files have been renamed:")
+print(os.listdir())
