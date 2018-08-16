@@ -1,4 +1,5 @@
 import os
+import msvcrt as keypress
 
 name = input("Enter the name: ")
 path = os.getcwd()
@@ -7,6 +8,9 @@ os.mkdir(os.path.join(path, name)) # make new directory
 os.chdir(os.path.join(path, name)) # navigate into new directory
 
 path = os.getcwd() # update working directory
+
+print("Place media file and subtitle(optional) file in new folder folder\n")
+input("Press Enter to continue...")
 
 filenames = os.listdir(path)
 
