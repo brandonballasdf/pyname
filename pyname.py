@@ -1,19 +1,24 @@
 import os
+import sys
 
 print("Enter the name: ")
 name = input()
 path = os.getcwd()
 
-os.mkdir(os.path.join(path, name)) # make new directory
-os.chdir(os.path.join(path, name)) # navigate into new directory
+try:
+    os.mkdir(os.path.join(path, name)) # make new directory
+    os.chdir(os.path.join(path, name)) # navigate into new directory
+except FileExistsError as err:
+    print('This file exists already... Error Message:', err)
+    print("Exiting...")
+    sys.exit(1)
 
 path = os.getcwd() # update working directory
 
-print("Place media file and subtitle(optional) file in new folder named " + name)
-input("Press Enter to continue...")
-
 filenames = os.listdir(path)
 
+print("Place media file and subtitle(optional) file in new folder named " + name)
+input("Press Enter to continue...")
 
 for filename in filenames: # for loop searches for key file extensions and renames according to user input
 
