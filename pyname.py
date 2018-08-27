@@ -1,24 +1,22 @@
 import os
-import sys
 
 print("Enter the name: ")
 name = input()
 path = os.getcwd()
+one = "1"
 
-try:
-    os.mkdir(os.path.join(path, name)) # make new directory
-    os.chdir(os.path.join(path, name)) # navigate into new directory
-except FileExistsError as err:
-    print('This file exists already... Error Message:', err)
-    print("Exiting...")
-    sys.exit(1)
+hashed_name = one + name
 
-path = os.getcwd() # update working directory
+os.mkdir(os.path.join(path, hashed_name)) # make new directory
+os.chdir(os.path.join(path, hashed_name)) # navigate into new directory
 
-filenames = os.listdir(path)
+new_path = os.getcwd() # update working directory
 
 print("Place media file and subtitle(optional) file in new folder named " + name)
 input("Press Enter to continue...")
+
+filenames =  os.listdir(new_path)
+
 
 for filename in filenames: # for loop searches for key file extensions and renames according to user input
 
@@ -37,6 +35,10 @@ for filename in filenames: # for loop searches for key file extensions and renam
     elif filename.endswith('.mkv'):
         dst = name + '.mkv'
         os.rename(filename, dst)
+
+
+os.chdir(path)
+os.rename(hashed_name,name)
 
 print("The following files have been renamed:")
 print(os.listdir())
