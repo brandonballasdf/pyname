@@ -36,10 +36,9 @@ def rename_files():
             dst = name + '.mkv'
             os.rename(filename, dst)
 
+    os.chdir('..')
     
 
-
-ogpath = make_folder
 root = Tk()
 
 root.title("pyname")
@@ -50,12 +49,10 @@ movie = Entry(root)
 createfolderbutton = Button(root, text = "Create Folder and Open", command=make_folder)
 label2 = Label(root, text = "Move media and select")
 renamebutton = Button(root, text = "This Button", command=rename_files)
-
 label1.grid(row=0,column=0)
 movie.grid(row=0,column=1)
 createfolderbutton.grid(row=1,column=0)
 
 label2.grid(row=5,column=0)
 renamebutton.grid(row=5,column=1)
-
 root.mainloop()
