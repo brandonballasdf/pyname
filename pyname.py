@@ -1,6 +1,7 @@
-import os
+import os, imp
 import subprocess
 from tkinter import *
+import tkinter.simpledialog as simpledialog
 
 
 def make_folder():
@@ -37,12 +38,21 @@ def rename_files():
             os.rename(filename, dst)
 
     os.chdir('..')
-    
+
 
 root = Tk()
 
 root.title("pyname")
 root.geometry("300x100")
+
+menubar = Menu(root)
+root.config(menu=menubar)
+
+filemenu = Menu(menubar)
+menubar.add_cascade(label='File', menu=filemenu)
+
+filemenu.add_command(label='Quit', command=sys.exit)
+
 
 label1 = Label(root, text = "Enter the name of the movie:")
 movie = Entry(root)
