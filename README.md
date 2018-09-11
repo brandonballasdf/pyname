@@ -1,9 +1,9 @@
 # pyname
 renames files in a directory, built for Plex media management
 
-This script works by taking a user input (name of media being managed)(case sensitive), and creates a directory with that name.
+the .py file should be placed in the root folder storing folder of all media
 
-When the directory is made a prompt will appear indicating that you must place media+subtitle file into the new folder, they can be called 
-whatever so long as they have mkv/mp4/avi/srt suffix
+The program asks you to input the name of the movie you are seeking to rename. After it is imput into the entry box, hit the "Creat Folder and Open" button. Once this is done a new folder will be opened on your desktop. After this occurs, place your media/subtitles file into the new folder with their garbage names and hit "This Button" on the gui.
+After this occurs the files placed in the new directory will be replaced with the directory's name while maintaining their extensions.
 
-After files are placed hit enter and they should be renamed
+Source code is well documented and simple, make changes as you see fit to your use case.
