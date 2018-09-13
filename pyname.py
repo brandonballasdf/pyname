@@ -6,18 +6,16 @@ def make_folder():
     error = "This directory already exists"
     name_of_movie = movie.get() # gets value from tkinter entry box
     path = os.getcwd() # saves current working directory
-    exception_counter = 0
 
     try:
         os.mkdir(os.path.join(path, name_of_movie)) # make new directory
     except:
         showerror("D'Oh", message=str(error))
-        exception_counter = 1
-        
-    if exception_counter == 0:
-        os.chdir(os.path.join(path, name_of_movie)) # navigate into new directory
-        path = os.getcwd() # update working directory
-        os.startfile(path) # opens folder created
+
+    os.chdir(os.path.join(path, name_of_movie)) # navigate into new directory
+
+    path = os.getcwd() # update working directory
+    os.startfile(path) # opens folder created
 
 def rename_files():
     path = os.getcwd() # saves current working directory
@@ -60,6 +58,7 @@ filemenu.add_command(label='Quit', command=sys.exit) # file menu quit command
 
 label1 = Label(root, text = "Enter the name of the movie:")
 movie = Entry(root)
+movie.focus()
 createfolderbutton = Button(root, text = "Create Folder and Open", command=make_folder)
 label2 = Label(root, text = "Move media and select")
 renamebutton = Button(root, text = "This Button", command=rename_files)
