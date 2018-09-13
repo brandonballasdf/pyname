@@ -6,16 +6,18 @@ def make_folder():
     error = "This directory already exists"
     name_of_movie = movie.get() # gets value from tkinter entry box
     path = os.getcwd() # saves current working directory
+    exception_counter = 0
 
     try:
         os.mkdir(os.path.join(path, name_of_movie)) # make new directory
     except:
         showerror("D'Oh", message=str(error))
-
-    os.chdir(os.path.join(path, name_of_movie)) # navigate into new directory
-
-    path = os.getcwd() # update working directory
-    os.startfile(path) # opens folder created
+        exception_counter = 1
+        
+    if exception_counter == 0:
+        os.chdir(os.path.join(path, name_of_movie)) # navigate into new directory
+        path = os.getcwd() # update working directory
+        os.startfile(path) # opens folder created
 
 def rename_files():
     path = os.getcwd() # saves current working directory
